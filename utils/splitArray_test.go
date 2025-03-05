@@ -65,6 +65,15 @@ func TestSplitArray(t *testing.T) {
 			},
 		},
 		{
+			name:  "One part (unchanged)",
+			arr:   []int{1, 2, 3, 4, 5},
+			parts: 2,
+			expected: [][]int{
+				{1, 2, 3},
+				{4, 5},
+			},
+		},
+		{
 			name:  "Empty array",
 			arr:   []int{},
 			parts: 3,
@@ -80,7 +89,7 @@ func TestSplitArray(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			result := SplitArray(tt.arr, tt.parts)
 			if !reflect.DeepEqual(result, tt.expected) {
-				t.Errorf("Ожидалось: %v, получено: %v", tt.expected, result)
+				t.Errorf("expected: %v, received: %v", tt.expected, result)
 			}
 		})
 	}
