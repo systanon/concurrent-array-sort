@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"go-sort/utils"
 	"os"
 	"sort"
 	"strconv"
@@ -11,29 +12,6 @@ import (
 )
 
 const PARTS = 4
-
-func splitArray(arr []int, parts int) [][]int {
-	n := len(arr)
-	if n < parts {
-		parts = n
-	}
-
-	partitions := make([][]int, parts)
-	chunkSize := n / parts
-	extra := n % parts
-	index := 0
-	for i := 0; i < parts; i++ {
-		currentSize := chunkSize
-		if i < extra {
-			currentSize++
-		}
-
-		partitions[i] = arr[index : index+currentSize]
-		index += currentSize
-	}
-
-	return partitions
-}
 
 func main() {
 
@@ -57,7 +35,7 @@ func main() {
 		return
 	}
 
-	chunks := splitArray(arr, PARTS)
+	chunks := utils.SplitArray(arr, PARTS)
 	var wg sync.WaitGroup
 	sortedParts := make(chan []int, PARTS)
 
