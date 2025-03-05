@@ -1,6 +1,6 @@
 package utils
 
-func SplitArray(arr []int, parts int) [][]int {
+func Split(arr []int, parts int) [][]int {
 	partitions := make([][]int, parts)
 	n := len(arr)
 	if n == 0 {

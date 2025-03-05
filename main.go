@@ -35,7 +35,7 @@ func main() {
 		return
 	}
 
-	chunks := utils.SplitArray(arr, PARTS)
+	chunks := utils.Split(arr, PARTS)
 	var wg sync.WaitGroup
 	sortedParts := make(chan []int, PARTS)
 

@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestSplitArray(t *testing.T) {
+func TestSplit(t *testing.T) {
 	tests := []struct {
 		name     string
 		arr      []int
@@ -87,7 +87,7 @@ func TestSplitArray(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := SplitArray(tt.arr, tt.parts)
+			result := Split(tt.arr, tt.parts)
 			if !reflect.DeepEqual(result, tt.expected) {
 				t.Errorf("expected: %v, received: %v", tt.expected, result)
 			}
