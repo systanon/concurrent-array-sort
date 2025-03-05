@@ -10,17 +10,13 @@ func SplitArray(arr []int, parts int) [][]int {
 		parts = n
 	}
 
-	chunkSize := n / parts
-	extra := n % parts
 	index := 0
 	for i := 0; i < parts; i++ {
-		currentSize := chunkSize
-		if i < extra {
-			currentSize++
-		}
+		remaining := n - index
+		size := (remaining + (parts - i) - 1) / (parts - i)
 
-		partitions[i] = arr[index : index+currentSize]
-		index += currentSize
+		partitions[i] = arr[index : index+size]
+		index += size
 	}
 
 	return partitions
