@@ -15,7 +15,7 @@ func Split(arr []int, parts int) [][]int {
 		remaining := n - index
 		size := (remaining + (parts - i) - 1) / (parts - i)
 
-		partitions[i] = arr[index : index+size]
+		partitions[i] = Sort(arr[index : index+size])
 		index += size
 	}
 
