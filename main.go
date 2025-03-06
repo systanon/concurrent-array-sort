@@ -40,6 +40,5 @@ func main() {
 
 func sortPartition(arr []int, wg *sync.WaitGroup, sortedParts chan<- []int) {
 	defer wg.Done()
-	sort.Ints(arr)
 	sortedParts <- arr
 }
