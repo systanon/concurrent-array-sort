@@ -1,37 +1,20 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
+	"go-sort/handlers"
 	"go-sort/utils"
 	"os"
 	"sort"
-	"strconv"
-	"strings"
 	"sync"
 )
 
 const PARTS = 4
 
 func main() {
-
-	fmt.Println("Enter a series of integers separated by spaces:")
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-	input := scanner.Text()
-	strNums := strings.Fields(input)
-
-	var arr []int
-	for _, str := range strNums {
-		num, err := strconv.Atoi(str)
-		if err != nil {
-			fmt.Println("Invalid input. Please enter integers only.")
-			return
-		}
-		arr = append(arr, num)
-	}
-	if len(arr) < PARTS {
-		fmt.Printf("Please enter minimum %d integers\n", PARTS)
+	arr, err := handlers.InputHandler(PARTS, os.Stdin)
+	if err != nil {
+		fmt.Println("Error:", err)
 		return
 	}
 
