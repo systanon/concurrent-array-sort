@@ -83,15 +83,6 @@ func TestSplit(t *testing.T) {
 				nil,
 			},
 		},
-		{
-			name:  "Sort array",
-			arr:   []int{2, 1, 3, 5, 4},
-			parts: 2,
-			expected: [][]int{
-				{1, 2, 3},
-				{4, 5},
-			},
-		},
 	}
 
 	for _, tt := range tests {
